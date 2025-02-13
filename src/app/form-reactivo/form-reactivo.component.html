@@ -1,0 +1,15 @@
+<div class="my-2"> 
+    <label class="form-label" for="actividad1">Actividad:</label>
+    <input class="form-control" type="text" [formControl]="actividad1" placeholder="Escribe una actividad">
+    <label class="form-label" for="Lugar">Lugar:</label>
+    <input class="form-control" type="text" [formControl]="lugar" placeholder="Lugar de realización">
+</div>
+<button class="btn btn-success" (click)="agregar()">Agregar</button>
+<ol>
+  @for(acti of lista;track $index) {
+  <li>
+    {{acti[0]}} - {{acti[1]}} <a class="btn btn-warning" (click)="borrar($index)" href="#">Borra</a>
+  </li>
+  }
+</ol>
+<button class="btn btn-danger" (click)="borrarTodas()">Borrar todas las actividades</button>

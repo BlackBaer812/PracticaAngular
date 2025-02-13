@@ -1,0 +1,56 @@
+<div>
+    <p>Nombre del Empleado:{{nombre}}</p>
+    <p>Edad:{{edad}}</p> 
+    @if (edad>=18){
+      <p>Es mayor de edad.</p>
+    }
+    @else {
+      <p>Es menor de edad.</p>
+    }
+  
+    <p>{{esActivo()}}</p>
+  
+    <p>Los últimos tres sueldos son: {{sueldos[0]}}, {{sueldos[1]}} y {{sueldos[2]}}</p>
+    <p>En los últimos 3 meses ha ganado: {{ultimos3Sueldos()}}</p>
+    <p>{{esActivo()}}</p>
+  
+    <h1>Listado de articulos</h1>
+    <table>
+    @for(articulo of articulos; track articulo.codigo){
+      <tr>
+        <td>{{articulo.codigo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio}}</td>
+      </tr>
+    }
+    </table>
+    
+    <h1>Numero aleatorio entre 1 y 3</h1>
+    @switch (generarNumero()) {
+      @case (1) {
+        <p>Uno</p>
+      }
+      @case (2) {
+        <p>Dos</p>
+      }
+      @case (3) {
+        <p>Tres</p>
+      }
+    }
+  
+  </div>
+  
+  <div>
+    <p>{{contador}}</p>
+    <button (click)="incrementar()">Suma 1</button>
+    <button (click)="decrementar()">Resta 1</button>
+  </div>
+  
+  <div>
+    <h1>Cosas de modificar inputs</h1>
+    <div>
+      <input type="button" (click)="fijarNombre1()" value="Juan">
+      <input type="button" (click)="fijarNombre2()" value="Ana">
+    </div>
+    <input type="text" [value]="nombre2">
+  </div>

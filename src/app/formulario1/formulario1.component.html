@@ -1,0 +1,46 @@
+<div>
+    @if (hayRegistros()) {
+    <table>
+      <thead>
+        <tr>
+          <th>Codigo</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+          <th>Borrar</th>
+          <th>Seleccionar</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(art of articulos; track art.codigo) {
+        <tr>
+          <td>{{art.codigo}}</td>
+          <td>{{art.descripcion}}</td>
+          <td>{{art.precio}}</td>
+          <td><button (click)="borrar(art.codigo)">Borrar?</button></td>
+          <td><button (click)="seleccionar(art)">Seleccionar</button></td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    } @else {
+    <p>No hay articulos.</p>
+    }
+  
+    <div class="d-flex flex-column justify-content-center">
+      <div class="d-flex justify-content-star gap-1">
+        <p>
+          Codigo: <input type="number" [(ngModel)]="art.codigo" style="width: 150px;"/>
+        </p>
+        <p>
+          descripcion: <input type="text" [(ngModel)]="art.descripcion" style="width: 119px;"/>
+        </p>
+        <p>
+          precio: <input type="number" [(ngModel)]="art.precio" style="width: 159px;"/>
+        </p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-info m-1" (click)="agregar()">Agregar</button>
+        <button class="btn btn-info m-1" (click)="modificar()">Modificar</button>
+      </div>
+    </div>
+  </div>
