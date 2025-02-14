@@ -1,0 +1,18 @@
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{nombre}}</mat-card-title>
+      <mat-card-subtitle>{{especie}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{misrc}} alt={{mialt}}>
+    <mat-card-content>
+      <p>
+        {{descripcion}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <p>{{megusta}}</p>
+      <button mat-button (click)="click()">{{gusta? "Unlike":"Like"}}</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>

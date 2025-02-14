@@ -15,7 +15,6 @@ export class DadoComponent{
   ngAfterViewInit() {
     document.documentElement.style.setProperty('--tiempo', this.tiempo + 'ms');
     // Este es el lugar correcto para manipular dadoRef
-    console.log('Dado está disponible:', this.dado);
   }
 
   tirar() {

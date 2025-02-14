@@ -11,6 +11,7 @@ import { Formulario1Component } from './formulario1/formulario1.component';
 import { FormReactivoComponent } from './form-reactivo/form-reactivo.component';
 import { PMaterialComponent } from './p-material/p-material.component';
 import { FormularioMatrialComponent } from './formulario-matrial/formulario-matrial.component';
+import { Card1Component } from './card1/card1.component';
 
 
 @Component({
@@ -26,19 +27,15 @@ import { FormularioMatrialComponent } from './formulario-matrial/formulario-matr
     InicialComponent,
     CronometroComponent,
     ValoresComponent,
-    BarraAriaComponent],
+    BarraAriaComponent,
+    Card1Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   @Input() time:number = 1200;
   @ViewChildren(DadoComponent) dados!:QueryList<DadoComponent>;
-  
-  
 
-  ngAfterViewInit() {
-    console.log("Dados cargados:", this.dados);
-  }
 
   tirarTodos2(t:Array<DadoComponent>){
     this.deshabilitar()
