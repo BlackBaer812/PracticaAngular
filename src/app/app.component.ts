@@ -1,6 +1,6 @@
 import { Component, QueryList, ViewChild, ViewChildren, AfterViewInit, ElementRef, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { AlumnosComponent } from "./alumnos/alumnos.component";
 import { DadoComponent } from "./dado/dado.component";
 import { InicialComponent } from "./inicial/inicial.component";
@@ -28,7 +28,8 @@ import { Card1Component } from './card1/card1.component';
     CronometroComponent,
     ValoresComponent,
     BarraAriaComponent,
-    Card1Component],
+    Card1Component, 
+    RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

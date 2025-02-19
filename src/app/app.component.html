@@ -1,141 +1,181 @@
 <!-- <app-inicial></app-inicial>
 <app-alumnos></app-alumnos> -->
 <div class="container my-2">
-  <div class="row">
-    <div class="col d-flex gap-2" id="dados">
-      <div class="card" style="width: 26rem;">
-        <div class="card-header">
-          <h3>Dados</h3>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col d-flex justify-content-center aling-items-center">
-              <app-dado [tiempo]="time" #dado1></app-dado>
-              <app-dado [tiempo]="time" #dado2></app-dado>
-              <app-dado [tiempo]="time" #dado3></app-dado>
-              <app-dado [tiempo]="time" #dado4></app-dado>
-          </div>
-          <div class="row mb-1">
-            <div class="col d-flex justify-content-center align-items-center gap-2">
-              <button class="btn btn-info" id="todos"  (click)="tirarTodos()">Tirar todos</button>
-              <button class="btn btn-info" id="todos2" (click)="tirarTodos2([dado1,dado2,dado3,dado4])">Tirar todos</button>
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner d-flex align-items-center" style="padding-left: 140px; padding-right: 140px; min-height: 500px;">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="col d-flex flex-column justify-content-center align-items-center">
+            <app-valores [minimo]="1" [maximo]="10" #selector1></app-valores>
+            <div class="row">
+              <div class="col gap-2 d-flex">
+                <button class="btn btn-warning" (click)="fijarSelector(1,selector1)">Fijar en 1</button>
+                <button class="btn btn-warning" (click)="fijarSelector(5,selector1)">Fijar en 5</button>
+                <button class="btn btn-warning" (click)="fijarSelector(10,selector1)">Fijar en 10</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="card-footer d-flex justify-content-center align-items-center gap-2">
-        <input class="form-control" type="number" [formControl]="tCambio" placeholder="velocidad a la que giran"/>
-        <button class="btn btn-success" id="cambioVelo" (click)="cambiarVelocidad()">Aplicar</button>
-      </div>
-    </div>
-    <div class="card" style="width: 26rem;">
-      <div class="card-header">
-        <h3>Inputs y modificación de valores</h3>
-      </div>
-      <div class="card-body">
-        <div class="col d-flex flex-column justify-content-center align-items-center">
-          <app-valores [minimo]="1" [maximo]="10" #selector1></app-valores>
-          <div class="row">
-            <div class="col gap-2 d-flex">
-              <button class="btn btn-warning" (click)="fijarSelector(1,selector1)">Fijar en 1</button>
-              <button class="btn btn-warning" (click)="fijarSelector(5,selector1)">Fijar en 5</button>
-              <button class="btn btn-warning" (click)="fijarSelector(10,selector1)">Fijar en 10</button>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="col d-flex flex-column align-items-center justify-content-center gap-2">
+            <div class="row justify-content-center">
+              <div class="col">
+                <app-barra-aria [value]="currentProgress" [max]="maximo"></app-barra-aria>
+              </div>
             </div>
+            <button class="btn btn-dark" (click)="increaseProgress()">Aumentar progreso</button>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card justify-content-center" style="width: 26rem;">
-      <div class="card-header">
-        <h3>Modificación ARIA</h3>
-      </div>
-      <div class="card-body">
-        <div class="col d-flex flex-column align-items-center justify-content-center gap-2">
-          <div class="row justify-content-center">
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
             <div class="col">
-              <app-barra-aria [value]="currentProgress" [max]="maximo"></app-barra-aria>
+              <app-formulario1></app-formulario1>
             </div>
           </div>
-          <button class="btn btn-dark" (click)="increaseProgress()">Aumentar progreso</button>
+          
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row my-2">
-    <div class="col-8">
-      <div class="card">
-        <div class="card-header">
-          <h3>Administración de artículos</h3>
-        </div>
-        <div class="card-body">
-          <app-formulario1></app-formulario1>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <app-formulario-matrial></app-formulario-matrial>
+            </div>
+          </div>
+          
         </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <div class="card-header">
-          <h3>Formulario reactivo</h3>
-        </div>
-        <div class="card-body">
-          <app-form-reactivo></app-form-reactivo>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-center align-items-center">
+              <div class="card" style="width: 26rem;">
+                <div class="card-header">
+                  <h3>Dados</h3>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col d-flex justify-content-center align-items-center">
+                      <app-dado [tiempo]="time" #dado1></app-dado>
+                      <app-dado [tiempo]="time" #dado2></app-dado>
+                      <app-dado [tiempo]="time" #dado3></app-dado>
+                      <app-dado [tiempo]="time" #dado4></app-dado>
+                    </div>
+                  <div class="row mb-1">
+                    <div class="col d-flex justify-content-center align-items-center gap-2">
+                      <button class="btn btn-info" id="todos"  (click)="tirarTodos()">Tirar todos</button>
+                      <button class="btn btn-info" id="todos2" (click)="tirarTodos2([dado1,dado2,dado3,dado4])">Tirar todos</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer d-flex justify-content-center align-items-center gap-2">
+                <input class="form-control" type="number" [formControl]="tCambio" placeholder="velocidad a la que giran"/>
+                <button class="btn btn-success" id="cambioVelo" (click)="cambiarVelocidad()">Aplicar</button>
+              </div>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row my-2">
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">
-          <h3>Prueba de Angular Materials</h3>  
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Prueba de Angular Materials</h3>  
+                </div>
+                <div class="card-body">
+                  <div class="row gap-2">
+                    <app-p-material></app-p-material>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card-body">
-          <div class="row gap-2">
-            <app-p-material></app-p-material>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <app-card1 
+              nombre = "Mario"
+              especie = "Doverman"
+              mialt="Muy bueno"
+              misrc = "https://material.angular.io/assets/img/examples/shiba1.jpg"
+              fotoPerfil="https://material.angular.io/assets/img/examples/shiba1.jpg"
+              ></app-card1>
+            </div>
+            <div class="col-3">
+              <app-card1 
+              nombre = "Pastelito"
+              especie = "Chihuahua"
+              mialt="Muy malo"
+              misrc = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+              fotoPerfil="https://material.angular.io/assets/img/examples/shiba2.jpg"
+              ></app-card1>
+            </div>
+            <div class="col-3">
+              <app-card1 
+              nombre = "Dogger"
+              especie = "Ratonero"
+              mialt="No caza ratones"
+              misrc = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+              fotoPerfil="https://material.angular.io/assets/img/examples/shiba1.jpg"
+              ></app-card1>
+            </div>
+            <div class="col-3">
+              <app-card1 
+              nombre = "Patricio"
+              especie = "No se sabe"
+              mialt = "Solo duerme"
+              megusta = "20"
+              misrc = "https://material.angular.io/assets/img/examples/shiba1.jpg"
+              fotoPerfil="https://material.angular.io/assets/img/examples/shiba2.jpg"
+              ></app-card1>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">
-          <h3>Formulario reactivo con Angular Material</h3>
-        </div>
-        <div class="card-body">
-          <app-formulario-matrial></app-formulario-matrial>
-        </div>
-      </div>
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg>
+      </span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon text-primary" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+          <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+        </svg>
+      </span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+<div class="container my-2">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center gap-2">
+      <a class="btn btn-info" routerLink="/dado">Dado</a>
+      <a class="btn btn-info" routerLink="/form">Formulario de material</a>
+      <a class="btn btn-success" href="/">Volver</a>
     </div>
   </div>
-  <div class="row my-2">
-    <div class="col-3">
-      <app-card1 
-      nombre = "Mario"
-      especie = "Doverman"
-      mialt="Muy bueno"
-      ></app-card1>
-    </div>
-    <div class="col-3">
-      <app-card1 
-      nombre = "Pastelito"
-      especie = "Chihuahua"
-      mialt="Muy malo"
-      ></app-card1>
-    </div>
-    <div class="col-3">
-      <app-card1 
-      nombre = "Dogger"
-      especie = "Ratonero"
-      mialt="No caza ratones"
-      ></app-card1>
-    </div>
-    <div class="col-3">
-      <app-card1 
-      nombre = "Patricio"
-      especie = "No se sabe"
-      mialt = "Solo duerme"
-      megusta = "20"
-      ></app-card1>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <router-outlet/>
     </div>
   </div>
 </div>

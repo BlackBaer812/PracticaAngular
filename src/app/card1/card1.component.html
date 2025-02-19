@@ -1,8 +1,9 @@
 <mat-card class="example-card" appearance="outlined">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+      <div mat-card-avatar #miniatura class="example-header-image"></div>
       <mat-card-title>{{nombre}}</mat-card-title>
       <mat-card-subtitle>{{especie}}</mat-card-subtitle>
+      <p class="ms-auto">{{megusta}}</p>
     </mat-card-header>
     <img mat-card-image src={{misrc}} alt={{mialt}}>
     <mat-card-content>
@@ -11,8 +12,11 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-        <p>{{megusta}}</p>
-      <button mat-button (click)="click()">{{gusta? "Unlike":"Like"}}</button>
+      
+      <button mat-button (click)="click()" style="width : 120px;">
+        {{gusta? "Unlike":"Like"}} 
+        <mat-icon>favorite</mat-icon>
+      </button>
       <button mat-button>SHARE</button>
     </mat-card-actions>
   </mat-card>

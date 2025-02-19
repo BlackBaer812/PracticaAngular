@@ -1,13 +1,16 @@
-import { ChangeDetectionStrategy,Component, input, Input, Output } from '@angular/core';
+import { query } from '@angular/animations';
+import { ChangeDetectionStrategy,Component, Input, Output, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-card1',
   standalone:true,
-  imports: [MatButtonModule, MatCardModule],
+  imports: [MatButtonModule, MatCardModule, MatIconModule, CurrencyPipe],
   templateUrl: './card1.component.html',
-  styleUrl: './card1.component.css'
+  styleUrls: ['./card1.component.css']
 })
 export class Card1Component {
   @Input() nombre:string = "Nombre";
@@ -16,6 +19,15 @@ export class Card1Component {
   @Input() misrc:string = "Imagen";
   @Input() mialt:string = "Imagen de un perro";
   @Input() megusta:string = "0";
+  @Input() fotoPerfil:string = "https://material.angular.io/assets/img/examples/shiba1.jpg";
+
+  constructor(private renderer: Renderer2, private el:ElementRef) { }
+
+  @ViewChild('miniatura',{static: false}) miniatura!:ElementRef;
+
+  ngAfterViewInit() {
+    this.renderer.setStyle(this.miniatura.nativeElement, 'background-image', `url(${this.fotoPerfil})`);
+  }
   
   gusta:boolean = false;
 
