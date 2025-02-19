@@ -5,3 +5,11 @@
 .example-header-image {
     background-size: cover;
 }
+
+.bonito{
+    font-weight: bold;
+}
+
+.feo{
+    font-weight: lighter;
+}

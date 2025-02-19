@@ -4,11 +4,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CurrencyPipe } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-card1',
   standalone:true,
-  imports: [MatButtonModule, MatCardModule, MatIconModule, CurrencyPipe],
+  imports: [MatButtonModule, MatCardModule, MatIconModule, CurrencyPipe,NgClass],
   templateUrl: './card1.component.html',
   styleUrls: ['./card1.component.css']
 })
@@ -20,6 +21,7 @@ export class Card1Component {
   @Input() mialt:string = "Imagen de un perro";
   @Input() megusta:string = "0";
   @Input() fotoPerfil:string = "https://material.angular.io/assets/img/examples/shiba1.jpg";
+  @Input() bonito:boolean = false;
 
   constructor(private renderer: Renderer2, private el:ElementRef) { }
 
