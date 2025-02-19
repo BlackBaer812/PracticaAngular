@@ -12,6 +12,7 @@ import { FormReactivoComponent } from './form-reactivo/form-reactivo.component';
 import { PMaterialComponent } from './p-material/p-material.component';
 import { FormularioMatrialComponent } from './formulario-matrial/formulario-matrial.component';
 import { Card1Component } from './card1/card1.component';
+import { VacioComponent } from './vacio/vacio.component';
 
 
 @Component({
@@ -29,7 +30,8 @@ import { Card1Component } from './card1/card1.component';
     ValoresComponent,
     BarraAriaComponent,
     Card1Component, 
-    RouterLink],
+    RouterLink,
+    VacioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
