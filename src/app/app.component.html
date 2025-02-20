@@ -146,6 +146,80 @@
           </div>
         </div>
       </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-center align-items-center">
+              <div class="card" style="width: 26rem;">
+                <div class="card-header">
+                  <h3>Servicios internos</h3>
+                </div>
+                <div class="card-body">
+                  <table>
+                    @for(articulo of articulos;track $index) {
+                    <tr>
+                      <td>{{articulo.codigo}}</td>
+                      <td>{{articulo.descripcion}}</td>
+                      <td>{{articulo.precio}}</td>
+                    </tr>
+                    }
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+              <div class="card" style="width: 26rem;">
+                <div class="card-header">
+                  <h3>Servicios externos (No hacemos php)</h3>
+                </div>
+                <div class="card-body">
+                  <table>
+                    @for(articulo1 of articulos1;track $index) {
+                    <tr>
+                      <td>{{articulo1.codigo}}</td>
+                      <td>{{articulo1.descripcion}}</td>
+                      <td>{{articulo1.precio}}</td>
+                    </tr>
+                    }
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-center align-items-center">
+              <div class="card" style="width: 26rem;">
+                <div class="card-header">
+                  <h2>Semaforo</h2>
+                </div>
+                <div class="card-body">
+                  <app-mod-dinamica></app-mod-dinamica>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-center align-items-center">
+              <div class="card" style="width: 26rem;">
+                <div class="card-header">
+                  <h2>Cambiar texto dinamico</h2>
+                </div>
+                <div class="card-body">
+                  <app-mod-texto-dinamico></app-mod-texto-dinamico>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

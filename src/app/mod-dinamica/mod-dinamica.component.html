@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col d-flex flex-column gap-2 align-items-center justify-content-center">
+            <div class="semaforo">
+                <div class="luz rojo" [ngClass]="{encendido: activo[2]}"></div>
+                <div class="luz amarillo" [ngClass]="{encendido: activo[1]}"></div>
+                <div class="luz verde" [ngClass]="{encendido: activo[0]}"></div>
+            </div>
+            <button class="btn btn-primary" (click)="iSemaforo()">Iniciar semaforo</button>
+        </div>
+    </div>
+</div>

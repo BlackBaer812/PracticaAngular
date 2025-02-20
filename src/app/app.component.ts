@@ -13,7 +13,9 @@ import { PMaterialComponent } from './p-material/p-material.component';
 import { FormularioMatrialComponent } from './formulario-matrial/formulario-matrial.component';
 import { Card1Component } from './card1/card1.component';
 import { VacioComponent } from './vacio/vacio.component';
-
+import { ArticulosService } from './articulos.service';
+import { ModDinamicaComponent } from './mod-dinamica/mod-dinamica.component';
+import { ModTextoDinamicoComponent } from './mod-texto-dinamico/mod-texto-dinamico.component';
 
 @Component({
   selector: 'app-root',
@@ -31,11 +33,21 @@ import { VacioComponent } from './vacio/vacio.component';
     BarraAriaComponent,
     Card1Component, 
     RouterLink,
-    VacioComponent],
+    VacioComponent,
+    ModDinamicaComponent,
+    ModTextoDinamicoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  articulos:any;
+  articulos1: any;
+
+  constructor(private articulosServicios:ArticulosService){
+    this.articulos = this.articulosServicios.retornar();
+    this.articulosServicios.retornarGet().subscribe(result => this.articulos1 = result)
+  }
+
   @Input() time:number = 1200;
   @ViewChildren(DadoComponent) dados!:QueryList<DadoComponent>;
 
@@ -112,6 +124,6 @@ export class AppComponent {
     }
    
 
-
+    
 }
 

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <select [(ngModel)]="tam" name="" id="">
+                <option value="12px">12px</option>
+                <option value="16px">16px</option>
+                <option value="20px">20px</option>
+                <option value="24px">24px</option>
+                <option value="30px">30px</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p [ngStyle]="{'font-size': tam}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugit velit nisi alias unde soluta quidem, non doloribus quae a voluptates eum, accusantium minima ab! Reiciendis voluptas nostrum ea doloremque.</p>
+        </div>
+    </div>
+</div>
