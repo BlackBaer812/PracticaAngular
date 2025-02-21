@@ -13,7 +13,8 @@ import { PMaterialComponent } from './p-material/p-material.component';
 import { FormularioMatrialComponent } from './formulario-matrial/formulario-matrial.component';
 import { Card1Component } from './card1/card1.component';
 import { VacioComponent } from './vacio/vacio.component';
-import { ArticulosService } from './articulos.service';
+import { ArticulosService } from './servicios/articulos.service';
+import { EmergenteStrService } from './servicios/emergente-str.service';
 import { ModDinamicaComponent } from './mod-dinamica/mod-dinamica.component';
 import { ModTextoDinamicoComponent } from './mod-texto-dinamico/mod-texto-dinamico.component';
 
@@ -35,7 +36,8 @@ import { ModTextoDinamicoComponent } from './mod-texto-dinamico/mod-texto-dinami
     RouterLink,
     VacioComponent,
     ModDinamicaComponent,
-    ModTextoDinamicoComponent],
+    ModTextoDinamicoComponent,
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -43,7 +45,7 @@ export class AppComponent {
   articulos:any;
   articulos1: any;
 
-  constructor(private articulosServicios:ArticulosService){
+  constructor(private articulosServicios:ArticulosService, private emergente:EmergenteStrService){
     this.articulos = this.articulosServicios.retornar();
     this.articulosServicios.retornarGet().subscribe(result => this.articulos1 = result)
   }
@@ -52,15 +54,17 @@ export class AppComponent {
   @ViewChildren(DadoComponent) dados!:QueryList<DadoComponent>;
 
 
-  tirarTodos2(t:Array<DadoComponent>){
+  async tirarTodos2(t:Array<DadoComponent>){
     this.deshabilitar()
-    t.forEach(dado =>{
-      //console.log(dado)
-      dado.tirar()
-    } );
-    setTimeout(() => {
-      this.habilitar()
-    }, this.time);
+
+    const numeros = await Promise.all(t.map(dado => dado.tirar()));
+
+    
+    this.habilitar()
+
+    if(this.emergente.victoria(numeros)){
+      alert("Los 4 son iguales")
+    }
   }
 
   tirarTodos(){

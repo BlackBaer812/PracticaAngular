@@ -17,22 +17,25 @@ export class DadoComponent{
     // Este es el lugar correcto para manipular dadoRef
   }
 
-  tirar() {
-    this.valor = Math.floor(Math.random() * 6) + 1;
-
-    if (this.dado && this.dado.nativeElement) {
-      this.dado.nativeElement.classList.add("rolling");
-    } else {
-      console.error('dado no está disponible');
-    }
-
-    const random = setInterval(()=>{
+  tirar(): Promise<number> {
+    return new Promise((resolve) => {
       this.valor = Math.floor(Math.random() * 6) + 1;
-    },100);
-
-    setTimeout(()=>{
-      this.dado.nativeElement.classList.remove("rolling");
-      clearInterval(random);
-    },this.tiempo)
+  
+      if (this.dado && this.dado.nativeElement) {
+        this.dado.nativeElement.classList.add("rolling");
+      } else {
+        console.error('dado no está disponible');
+      }
+  
+      const random = setInterval(() => {
+        this.valor = Math.floor(Math.random() * 6) + 1;
+      }, 100);
+  
+      setTimeout(() => {
+        clearInterval(random);
+        this.dado.nativeElement.classList.remove("rolling");
+        resolve(this.valor); // En lugar de return, usamos resolve() para devolver el valor
+      }, this.tiempo);
+    });
   }
 }
