@@ -103,46 +103,53 @@
       <div class="carousel-item">
         <div class="container">
           <div class="row">
-            <div class="col-3">
-              <app-card1 
-              nombre = "Mario"
-              especie = "Doverman"
-              mialt="Muy bueno"
-              misrc = "https://material.angular.io/assets/img/examples/shiba1.jpg"
-              fotoPerfil="https://material.angular.io/assets/img/examples/shiba1.jpg"
-              ></app-card1>
-            </div>
-            <div class="col-3">
-              <app-card1 
-              nombre = "Pastelito"
-              especie = "Chihuahua"
-              mialt="Muy malo"
-              misrc = "https://material.angular.io/assets/img/examples/shiba2.jpg"
-              fotoPerfil="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              ></app-card1>
-            </div>
-            <div class="col-3">
-              <app-card1 
-              nombre = "Dogger"
-              especie = "Ratonero"
-              descripcion = "El jodio solo como Jamon Serrano"
-              mialt="No caza ratones"
-              misrc = "https://material.angular.io/assets/img/examples/shiba2.jpg"
-              fotoPerfil="https://material.angular.io/assets/img/examples/shiba1.jpg"
-              ></app-card1>
-            </div>
-            <div class="col-3">
-              <app-card1 
-              nombre = "Patricio"
-              especie = "No se sabe"
-              mialt = "Solo duerme"
-              descripcion = "Era camionero, pero se reencarno en un perro"
-              megusta = "20"
-              [bonito] = true
-              misrc = "https://material.angular.io/assets/img/examples/shiba1.jpg"
-              fotoPerfil="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              ></app-card1>
-            </div>
+            @defer(){
+              <div class="col-3">
+                <app-card1 
+                nombre = "Mario"
+                especie = "Doverman"
+                mialt="Muy bueno"
+                misrc = "https://material.angular.io/assets/img/examples/shiba1.jpg"
+                fotoPerfil="https://material.angular.io/assets/img/examples/shiba1.jpg"
+                ></app-card1>
+              </div>
+              <div class="col-3">
+                <app-card1 
+                nombre = "Pastelito"
+                especie = "Chihuahua"
+                mialt="Muy malo"
+                misrc = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+                fotoPerfil="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                ></app-card1>
+              </div>
+              <div class="col-3">
+                <app-card1 
+                nombre = "Dogger"
+                especie = "Ratonero"
+                descripcion = "El jodio solo como Jamon Serrano"
+                mialt="No caza ratones"
+                misrc = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+                fotoPerfil="https://material.angular.io/assets/img/examples/shiba1.jpg"
+                ></app-card1>
+              </div>
+              <div class="col-3">
+                <app-card1 
+                nombre = "Patricio"
+                especie = "No se sabe"
+                mialt = "Solo duerme"
+                descripcion = "Era camionero, pero se reencarno en un perro"
+                megusta = "20"
+                [bonito] = true
+                misrc = "https://material.angular.io/assets/img/examples/shiba1.jpg"
+                fotoPerfil="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                ></app-card1>
+              </div>
+            }
+            @loading (after 100ms; minimum 5s) {
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+              </div>
+            }
           </div>
         </div>
       </div>

@@ -5,11 +5,13 @@ import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CurrencyPipe } from '@angular/common';
 import { NgClass } from '@angular/common';
+import { ResaltadoDirective } from '../directivas/resaltado.directive';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-card1',
   standalone:true,
-  imports: [MatButtonModule, MatCardModule, MatIconModule, CurrencyPipe,NgClass],
+  imports: [MatButtonModule, MatCardModule, MatIconModule, CurrencyPipe,NgClass, ResaltadoDirective, FormsModule],
   templateUrl: './card1.component.html',
   styleUrls: ['./card1.component.css']
 })
@@ -22,6 +24,9 @@ export class Card1Component {
   @Input() megusta:string = "0";
   @Input() fotoPerfil:string = "https://material.angular.io/assets/img/examples/shiba1.jpg";
   @Input() bonito:boolean = false;
+
+  colorFon = "green";
+  tam = 14;
 
   constructor(private renderer: Renderer2, private el:ElementRef) { }
 
