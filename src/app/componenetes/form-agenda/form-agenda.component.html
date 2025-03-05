@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-6">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="titulo" minlength="2" placeholder="Título" [(ngModel)]="actividad.titulo" required>
+                <input type="text" class="form-control" id="titulo" minlength="2" name="titulo" placeholder="Título" [(ngModel)]="actividad.titulo" required>
                 <label for="titulo">Título de la nota</label>
             </div>
         </div>
         <div class="col-6">
             <div class="form-floating mb-3">
-                <input type="date" class="form-control" id="fecha" minlength="2" aria-label="Texto de la nota" placeholder="Texto de la nota" [(ngModel)]="actividad.fechaL" required>
+                <input type="date" class="form-control" id="fecha" minlength="2" name="fechaL" aria-label="Texto de la nota" placeholder="Texto de la nota" [(ngModel)]="actividad.fechaL" required>
                 <label for="fecha">Fecha limite</label>
             </div>
         </div>
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-12">
             <div class="form-floating mb-3">
-                <textarea type="text" class="form-control" id="nota" minlength="2" aria-label="Texto de la nota" placeholder="Texto de la nota" required style="height: 100px;" [(ngModel)]="actividad.comentario"></textarea>
+                <textarea type="text" class="form-control" id="nota" minlength="2" name="comentario" aria-label="Texto de la nota" placeholder="Texto de la nota" required style="height: 100px;" [(ngModel)]="actividad.comentario"></textarea>
                 <label for="nota">Texto de la nota</label>
             </div>
         </div>

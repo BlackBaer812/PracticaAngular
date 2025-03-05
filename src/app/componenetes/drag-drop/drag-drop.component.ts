@@ -6,18 +6,40 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
+import { DatePipe } from '@angular/common';
+import { ComunicacionService } from '../../servicios/comunicacion.service';
 
 @Component({
   selector: 'app-drag-drop',
   standalone: true,
-  imports: [CdkDropList, CdkDrag],
+  imports: [CdkDropList, CdkDrag, DatePipe],
   templateUrl: './drag-drop.component.html',
   styleUrl: './drag-drop.component.css'
 })
 export class DragDropComponent {
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  todo: any[] = [];
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  done: any[] = [];
+
+  constructor(private coms: ComunicacionService){ }
+
+  ngOnInit() {
+    this.coms.tareas$.subscribe(tareas =>{
+      this.todo = tareas
+    })
+  }
+
+  cargarTareas(){
+    const cargaTareas = localStorage.getItem("misNotas");
+
+    if(cargaTareas){
+      const tareas = JSON.parse(cargaTareas);
+
+      this.todo = tareas;
+    }
+  }
+
+  //done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

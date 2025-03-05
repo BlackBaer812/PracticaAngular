@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ComunicacionService } from '../../servicios/comunicacion.service';
 
 @Component({
   selector: 'app-form-agenda',
@@ -12,12 +12,23 @@ export class FormAgendaComponent {
   actividad = {
     id: 0,
     titulo: "",
-    fechaA: undefined,
-    fechaL: undefined,
+    fechaA: new Date(),
+    fechaL: "",
     comentario: ""
   }
 
+  constructor(private coms:ComunicacionService){}
+
   agregarNota(){
-    console.log(this.actividad.titulo,this.actividad.fechaL,this.actividad.comentario)
+
+    this.coms.agregarTarea(this.actividad)
+
+    this.actividad = {
+      id: 0,
+      titulo: "",
+      fechaA: new Date(),
+      fechaL: "",
+      comentario: ""
+    }
   }
 }
