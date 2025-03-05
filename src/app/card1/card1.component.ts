@@ -25,7 +25,7 @@ export class Card1Component {
   @Input() fotoPerfil:string = "https://material.angular.io/assets/img/examples/shiba1.jpg";
   @Input() bonito:boolean = false;
 
-  colorFon = "green";
+  @Input() colorFon = "green";
   tam = 14;
 
   constructor(private renderer: Renderer2, private el:ElementRef) { }

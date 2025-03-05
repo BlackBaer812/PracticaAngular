@@ -36,7 +36,6 @@
               <app-formulario1></app-formulario1>
             </div>
           </div>
-          
         </div>
       </div>
       <div class="carousel-item">
@@ -227,6 +226,22 @@
           </div>
         </div>
       </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-center align-items-center">
+              <div class="card" style="width: 26rem;">
+                <div class="card-header">
+                  <h2>Drag & drop</h2>
+                </div>
+                <div class="card-body">
+                  <app-form-agenda></app-form-agenda>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -254,11 +269,13 @@
     <div class="col-12 d-flex justify-content-center align-items-center gap-2">
       <a class="btn btn-info" routerLink="/dado">Dado</a>
       <a class="btn btn-info" routerLink="/form">Formulario de material</a>
+      <a class="btn btn-info" routerLink="/paises">Listado de paises</a>
+      <a class="btn btn-info" routerLink="/lista">Lista Drag & Drop</a>
       <a class="btn btn-success" routerLink="/">Volver</a>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12 d-flex justify-content-center align-items-center">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col d-flex justify-content-center align-items-center">
       <router-outlet/>
     </div>
   </div>

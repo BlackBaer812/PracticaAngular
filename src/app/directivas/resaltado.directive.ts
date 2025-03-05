@@ -23,7 +23,6 @@ export class ResaltadoDirective {
 
     if (this.tamano > 0)
     {
-      console.log(this.element.nativeElement);
       this.element.nativeElement.style.fontSize = this.tamano + 'px';
     }
   }

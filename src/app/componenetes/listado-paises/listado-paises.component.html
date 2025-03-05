@@ -1,0 +1,34 @@
+<div class="row d-flex justify-content-center align-items-center">
+  <div class="col-6 ">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Capita</th>
+          <th>Idioma</th>
+          <th>Moneda</th>
+          <th>Poblacion</th>
+          <th>Paises limitrofes</th>
+          <th>Bandera</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(pais of paises;track pais.nombre) {
+        <tr>
+          <td>{{pais.nombre}}</td>
+          <td>{{pais.capital}}</td>
+          <td>{{pais.idioma}}</td>
+          <td>{{pais.moneda}}</td>
+          <td>{{pais.poblacion}}</td>
+          <td>
+            @for(limite of pais.limites;track limite) {
+            {{limite}}<br>
+            }
+          </td>
+          <td><img src="{{pais.bandera}}" alt="pais.nombre"></td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -17,6 +17,8 @@ import { ArticulosService } from './servicios/articulos.service';
 import { EmergenteStrService } from './servicios/emergente-str.service';
 import { ModDinamicaComponent } from './mod-dinamica/mod-dinamica.component';
 import { ModTextoDinamicoComponent } from './mod-texto-dinamico/mod-texto-dinamico.component';
+import { DragDropComponent } from './componenetes/drag-drop/drag-drop.component';
+import { FormAgendaComponent } from './componenetes/form-agenda/form-agenda.component';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +39,8 @@ import { ModTextoDinamicoComponent } from './mod-texto-dinamico/mod-texto-dinami
     VacioComponent,
     ModDinamicaComponent,
     ModTextoDinamicoComponent,
+    DragDropComponent,
+    FormAgendaComponent
     ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -69,7 +73,6 @@ export class AppComponent {
 
   tirarTodos(){
     this.dados.forEach(dado =>{
-      //console.log(dado)
       dado.tirar()
     } );
   }

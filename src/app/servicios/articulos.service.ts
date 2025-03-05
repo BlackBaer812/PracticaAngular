@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Pais } from '../interface/pais';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,12 @@ export class ArticulosService {
 
   retornarGet(){
     return this.http.get("https://ejerciciostutorialesya.com/vue/datos.php");
+  }
+
+  private urlApiPais = "https://www.ejerciciostutorialesya.com/cursojs/recuperarpaises.php";
+
+  retornarPaises(){
+    return this.http.get<Pais[]>(this.urlApiPais)
   }
 
   retornar() {
