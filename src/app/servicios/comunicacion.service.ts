@@ -6,8 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ComunicacionService {
 
-  private tareaSubject = new BehaviorSubject<any[]>(this.obtenerTareas())
-  tareas$ = this.tareaSubject.asObservable()
+  private tareas: any[] = this.obtenerTareas();
+
+  private todoSubject = new BehaviorSubject<any[]>(this.tareas.filter(t => !t.completada));
+  private doneSubject = new BehaviorSubject<any[]>(this.tareas.filter(t => t.completada));
+
+  todo$ = this.todoSubject.asObservable();
+  done$ = this.doneSubject.asObservable();
 
   constructor() { }
 
@@ -21,11 +26,17 @@ export class ComunicacionService {
     tarea.id = tareas.length + 1;
     tareas.push(tarea);
     localStorage.setItem('misNotas', JSON.stringify(tareas));
-    this.tareaSubject.next(tareas);
+    this.todoSubject.next(tareas.filter(t => !t.completada));
+    this.doneSubject.next(tareas.filter(t => t.completada));
   }
 
-  actualizarTareas(tareas: any[]): void {
-    localStorage.setItem('misNotas', JSON.stringify(tareas));
-    this.tareaSubject.next(tareas);  // Emitir el nuevo estado de las tareas
+  actualizarTareas(todo: any[], done:any[]): void {
+    const tareasActualizadas = [...todo, ...done];
+
+    localStorage.setItem('misNotas', JSON.stringify(tareasActualizadas));
+
+    
+    this.todoSubject.next(todo);
+    this.doneSubject.next(done);
   }
 }

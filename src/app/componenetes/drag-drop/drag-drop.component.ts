@@ -17,16 +17,15 @@ import { ComunicacionService } from '../../servicios/comunicacion.service';
   styleUrl: './drag-drop.component.css'
 })
 export class DragDropComponent {
-  todo: any[] = [];
+  todo: { titulo: string, fechaL:string, completada: boolean }[] = [];
 
-  done: any[] = [];
+  done: { titulo: string, fechaL:string, completada: boolean }[] = [];
 
   constructor(private coms: ComunicacionService){ }
 
   ngOnInit() {
-    this.coms.tareas$.subscribe(tareas =>{
-      this.todo = tareas
-    })
+    this.coms.todo$.subscribe(tareas => this.todo = tareas);
+    this.coms.done$.subscribe(tareas => this.done = tareas);
   }
 
   cargarTareas(){
@@ -41,7 +40,7 @@ export class DragDropComponent {
 
   //done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<{ titulo: string, fechaL: string, completada: boolean }[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -51,6 +50,8 @@ export class DragDropComponent {
         event.previousIndex,
         event.currentIndex,
       );
+      event.container.data[event.currentIndex].completada = !event.container.data[event.currentIndex].completada;
     }
+    this.coms.actualizarTareas(this.todo, this.done);
   }
 }

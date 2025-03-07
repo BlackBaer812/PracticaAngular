@@ -6,9 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DatePipe implements PipeTransform {
 
   transform(value: any, ...args: any): any {
-    if(args != null){
-      console.log(args)
-    }
-  }
+    if (!value) return 'Fecha no disponible';
 
+    let entrada = new Date(value);
+    return entrada.toLocaleDateString("es-ES", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  }
 }
+

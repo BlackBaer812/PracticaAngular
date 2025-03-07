@@ -14,7 +14,8 @@ export class FormAgendaComponent {
     titulo: "",
     fechaA: new Date(),
     fechaL: "",
-    comentario: ""
+    comentario: "",
+    completada: false
   }
 
   constructor(private coms:ComunicacionService){}
@@ -28,7 +29,8 @@ export class FormAgendaComponent {
       titulo: "",
       fechaA: new Date(),
       fechaL: "",
-      comentario: ""
+      comentario: "",
+      completada: false
     }
   }
 }
